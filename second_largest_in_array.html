@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="Second Largest in Array" content="Find second largest in array">
+        <title>2nd largest in Array</title>
+        <script type="text/javascript">
+
+			
+		
+			function processData(myArray) {
+
+	    		myArray.sort(function (a, b) 
+				{
+					if (a > b) { return 1; }
+					if (a < b) { return -1; }
+					// a must be equal to b
+					return 0;
+				});
+	    
+	    		var max = myArray[myArray.length-1];
+	    		console.log("max value is " + max);
+	    
+			    for (var i = myArray.length-1; i >=0; i--)
+			        {
+			            if (myArray[i] != max)
+			                {
+			                    console.log(myArray[i]);
+			                    return (myArray[i]);
+			                }
+			        }
+
+			}
+
+			processData([4,6,7,3,10,10]);
+
+
+		</script>
+	</head>
+
+
+		<body>
+	
+		</body>
+
+</html>

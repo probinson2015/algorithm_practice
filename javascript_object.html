@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="JavaSCript Objects" content="Displaying JavaScript object information ">
+        <title>Display Object</title>
+        <script type="text/javascript">
+        function displayInformation() {
+            
+            for (var i = 0; i < library.length; i++){
+
+                if (library[i].readingStatus == true)
+                {
+                    console.log("Already read '" + library[i].title + "'' by " + library[i].author + ".");
+                }
+                else
+                {
+
+                    console.log("Still need to read '" + library[i].title + "'' by " + library[i].author + ".");
+                }
+            }
+
+        } 
+
+
+var library = [ 
+    {
+        title: 'Bill Gates',
+        author: 'The Road Ahead',
+        readingStatus: true
+    },
+    {
+        title: 'Steve Jobs',
+        author: 'Walter Isaacson',
+        readingStatus: true
+    },
+    {
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        author: 'Suzanne Collins',
+        readingStatus: false
+    }
+];
+
+// displayInformation();
+library.sort(function (a, b) {
+  if (a.title > b.title) {
+    return 1;
+  }
+  if (a.title < b.title) {
+    return -1;
+  }
+  // a must be equal to b
+  return 0;
+});
+
+console.log(library);
+
+
+
+        </script>
+    </head>
+
+
+        <body>
+    
+        </body>
+
+</html>

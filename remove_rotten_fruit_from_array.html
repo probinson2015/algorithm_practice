@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Add description ">
+        <title>Remove Rotten</title>
+
+        <script type="text/javascript">
+        	
+        var fruit = ["apple","banana","kiwi","melone","orange", "rottenpineapple"]
+        var bagofFruits;
+		function removeRotten(bagOfFruits){
+			
+		  // ...
+			  if (bagOfFruits == null)
+			  {
+			  	return bagOfFruits;
+			  }
+
+			  for (var i = 0; i < bagOfFruits.length; i++)
+			  {
+			  	if (!bagOfFruits[i].search("rotten")){
+			  		bagOfFruits[i] = bagOfFruits[i].slice(6);
+			  	}
+			  }
+			    return bagOfFruits;
+
+		  
+		}
+
+
+removeRotten(fruit);
+
+
+		</script>
+	</head>
+
+
+		<body>
+	
+		</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="Grades Array" content="Working with grades">
+    <title>Grades Object</title>
+    <script type="text/javascript">
+    
+    function grades(){
+    	this.scores = [];
+    	this.add = add;
+    	this.average = average;
+    }
+
+    function add(score){
+    	this.scores.push(score);
+    }
+
+    function average(){
+    	var total = 0;
+    	for (var i = 0; i < this.scores.length; i++)
+    	{
+    		total += this.scores[i];
+    	}
+    	return total / this.scores.length;
+    }
+
+    var list = new grades;
+    list.add(3);
+    list.add(5);
+    list.add(15);
+    console.log(list.average());
+
+	</script>
+</head>
+
+
+	<body>
+
+	</body>
+
+</html>

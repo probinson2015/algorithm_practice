@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <title>JavaScript List Class Impleentation</title>
+    <script type="text/javascript">
+
+    function List(){
+    	this.listSize = 0;
+    	// this.pos = 0;
+    	this.dataStore = []; //initialises empty array to store list elements
+    	// this.clear = clear;
+    	this.find = find;
+    	this.toString = toString;
+    	// this.insert = insert;
+    	this.append = append;
+    	this.remove = remove;
+    	// this.front = front;
+    	// this.end = end;
+    	// this.prev = prev;
+    	// this.next = next; 
+    	// this.length = length;
+    	// this.currPos = currPos;
+    	// this.moveTo = moveTo;
+    	// this.getElement = getElement;
+    	// this.contains = contains;
+    }
+
+    function append(element){
+    	this.dataStore[this.listSize++] = element;
+    	//AFTER the element is appended, listSize is incremented by 1
+    }
+
+    // for removing we will splice the array using a "find" helper function
+    function find(element){
+    	for (var i = 0; i < this.dataStore.length; i++){
+    		if (this.dataStore[i] == element){
+    			return i;
+    		}
+    	}
+    	return -1;
+    }
+    	
+   	//now the remove function will use the position returned by find
+   	function remove(element){
+   		var foundAt = this.find(element);
+   		if (foundAt > -1){
+   			this.dataStore.splice(foundAt, 1);
+   			--this.listSize;
+   			return true;
+   		}
+   		return false;
+   	}
+
+   	//length function returns the number of elements in a list
+   	function length(){
+   		return this.listSize;
+   	}
+
+   	function toString(){
+   		return this.dataStore;
+   		//this isn't really a string, but it is an array for viewing
+   	}
+
+   	var names = new List();
+   	names.append("Porsha");
+   	names.append("Joe");
+   	names.append("Barbara");
+   	console.log(names.toString());
+   	names.remove("Joe")
+   	console.log(names.toString());
+
+
+
+
+	</script>
+</head>
+
+
+	<body>
+
+	</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Add description ">
+        <title>One Away Algorithm</title>
+     <!--    There are 3 types of edits that can be performed on strings: insert, remove, or replace a character. 
+        Given two strings, write a function to check if they are one edit (or zero edits) away. -->
+        <script type="text/javascript">
+        	 function one_away(str1, str2)
+        	 {
+        	 	
+        	 	if (str1.length == str2.length)
+        	 	{
+        	 		return oneEditReplace(str1, str2);
+        	 	}
+        	 	else if (str1.length + 1 == str2.length)
+        	 	{
+        	 		return oneEditInsert(str1, str2)
+        	 	}
+        	 	else if (str1.length - 1 == str2.length)
+        	 	{
+        	 		return oneEditInsert(str2, str1);
+        	 	}
+        	 	console.log("false from one_away")
+        	 	return false;
+
+        	 }
+
+        	 function oneEditReplace(str1, str2)
+        	 {
+        	 	var foundDifference = false;
+        	 	for (var i = 0; i < str1.length; i++)
+        	 	{
+        	 		if (str1.charAt(i) != str2.charAt(i))
+        	 		{
+        	 			if (foundDifference)
+        	 			{
+        	 				console.log("false from foundDifference")
+        	 				return false;
+        	 			}
+
+        	 			foundDifference = true;
+        	 		}
+        	 	}
+        	 	console.log("true from oneEditReplace")
+        	 	return true;
+        	 }
+
+        	 // Check if you can insert a character into shorter string to make longer string
+        	 function oneEditInsert(shorter, longer)
+        	 {
+        	 	var index1 = 0;
+        	 	var index2 = 0;
+
+        	 	while (index1 < shorter.length && index2 < longer.length)
+        	 	{
+        	 		if (shorter.charAt(index1) != longer.charAt(index2))
+        	 		{
+        	 			if (index1 != index2)
+        	 			{
+        	 				console.log("false from oneEditInsert")
+        	 				return false;
+        	 			}
+        	 			index2++;
+        	 		}
+        	 		else {
+        	 			index1++;
+        	 			index2++;
+        	 		}
+        	 	}
+        	 	console.log("true from oneEditInsert");
+        	 	return true;
+        	 }
+
+        	 
+
+        	 one_away("bue","blue");
+
+
+		</script>
+	</head>
+
+
+		<body>
+	
+		</body>
+
+</html>

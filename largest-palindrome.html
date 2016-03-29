@@ -1,0 +1,45 @@
+<html>
+<head>
+	<title>Largest Palindrome</title>
+	<script type="text/javascript">
+	function largestPalindrome(string)
+	{
+		var largest = "";
+
+		var arr = string.split(' ');
+		var words = {};
+		for (var i = 0; i < arr.length; i++)
+		{
+			var word = arr[i].split('').reverse().join('');
+			if (word == arr[i])
+			{
+				console.log("palindrome found");
+				console.log(word);
+				if (word.length > largest.length)
+				{
+					largest = word;
+				}
+			}
+
+		}
+		// if (largest != " ")
+		// {
+			return largest;
+		// }
+		// else
+		// {
+		// 	return false;
+		// }
+		
+		
+	}
+
+console.log(largestPalindrome("to each its own anna"));
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>

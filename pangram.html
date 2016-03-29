@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title></title>
+	<script>
+		function processData(input) {
+    //Enter your code here
+    var letters = {};
+    var chars = input.toLowerCase().split('');
+    var count = 0;
+    // console.log(chars);
+    for (var i = 0; i < chars.length; i++)
+        {
+           if (/[a-zA-Z]/.test(chars[i]) && !letters[chars[i]])
+           {
+               letters[chars[i]] = true;
+               count++
+            }
+           
+        }
+        if (count == 26)
+        {
+        	console.log("pangram found!");
+        }
+    
+        else
+        {
+        	console.log("no pangram found");
+        }
+	} 
+
+processData("We promptly judged antique ivory buckles for the next prizzze w");
+	</script>
+</head>
+<body>
+
+</body>
+</html>

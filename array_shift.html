@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Array Shift</title>
+        <script type="text/javascript">
+
+        var arr = [2,3,4,5,6];
+        console.log("before shift", arr)
+        var n = arr.length;
+        shift(arr);
+
+
+        function shift(arr)
+        {for (var i = n; i >=0; i--){
+        	arr[i] = arr[i-1];
+        }
+        arr[0] = 22;
+        console.log("after shift", arr);
+    }
+
+    newnum = 55,     	
+    arr.unshift(newnum, 16, -1);
+    console.log("arr after unshift", arr);
+
+
+		</script>
+	</head>
+
+
+		<body>
+	
+		</body>
+
+</html>

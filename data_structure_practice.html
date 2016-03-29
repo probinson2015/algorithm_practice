@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>JS Data Structure Practice</title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+        	 $(document).ready(function(){
+
+    	var monthName;
+    	var monthNum = window.prompt("Which month number do you want to know?");
+
+    	getMonthName(monthNum);
+
+
+    	function getMonthName(monthNum)
+    	{
+    		switch (monthNum) {
+    			case "1":
+	    			monthName = "January";
+	    			break;
+    			case "2":
+    				monthName = "February";
+    				break;
+    			case "3":
+    				monthName = "March";
+    				break;
+    			default:
+    				alert("Pick a number between 1 and ");
+
+    		}
+    		alert ("Month name is: " + monthName);
+    	}
+    })
+    
+	</script>
+</head>
+
+	<body>
+
+	</body>
+
+</html>
+
+

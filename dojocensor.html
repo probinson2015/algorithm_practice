@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script>
+		// 5. Censor
+		var censor = function(word, string) 
+		{
+			// create a function to repeat a string based on a specified number
+			var repeat_string = function(char, times) 
+			{
+				// declare the string first as an array
+				var new_string = [];
+
+				// loop through the times specified
+				for(var i=1; i<=times; i++) 
+				{
+					// if the current iteration is the first letter or the last letter, skip the current loop
+					// if(i == 1 || i == times)
+					// 	continue;
+
+					// push values into the new_string array
+					new_string.push(char);
+				}
+				console.log(new_string);
+				return new_string.join('');
+			}
+
+			// create a regex for searching the word to be censored
+			var regex = new RegExp(word, 'gi');
+
+			// if the word to be censored is found on the given string
+			if(string.match(regex))
+			{
+				// generate the censored word
+				// var new_string = word.substr(0,1) + repeat_string('*', word.length) + word.substr(word.length-1, 1);
+				var new_string = repeat_string('*', word.length);
+
+				// replace the string with the censored words
+				new_string = string.replace(regex, new_string);
+
+				return new_string;
+			}
+			else
+				return false;
+		}
+
+		console.log("Censor -- ", censor('bear', 'Bear is bear in the bear land'));
+		// end of Censor
+	</script>
+</head>
+<body>
+	<h1>Take a look in your browser's console.</h1>
+</body>
+</html>

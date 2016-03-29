@@ -1,0 +1,31 @@
+<html>
+<head>
+	<title>Return unique chars from string</title>
+
+	<script type="text/javascript">
+	// Given a string, return a string with only the unique characters. (Ex: "Mississippi" to "Misp")
+	var string = "Mississippi";
+
+	function unique(string){
+		var string_hash = {};
+		var unique_string = "";
+		for (var i = 0; i < string.length; i++){
+			string_hash[string[i]] = true;
+		}
+		// console.log(string_hash);
+		for (key in string_hash){
+			unique_string += key;
+		}
+		return unique_string;
+	}
+
+console.log(unique(string));
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

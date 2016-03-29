@@ -1,0 +1,26 @@
+
+<!-- Assume you  have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check is s2 is a rotation os s1 using only one call to isSubstring waterbottle is a rotation of erbottlewat-->
+<script>
+
+var s1 = "waterbottle";
+var s2 = "erbottlewat";
+
+
+function isRotation(s1, s2){
+
+	//check that s1 and s2 are equal length and not empty
+	if (s1.length > 0 && s1.length == s2.length){
+		//concat s1 and s1 
+		var s1s1 = s1+s1;
+		//if the word is doubled you should be able to find s2
+		if (s1s1.indexOf(s2) > 1){
+			return true;
+		}
+	}
+	//if it isn't a substring of the doubled word
+	return false;
+
+}
+
+console.log(isRotation(s1, s2));
+</script>

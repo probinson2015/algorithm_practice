@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="Array data structure" content="Display Array forward and backwards">
+    <title>Working with .reverse() and weekly temp object</title>
+    <script type="text/javascript">
+
+    	// var array = ["This", "Is", "My", "Array!"];
+    	// console.log(array.reverse());
+    	
+
+    	function weekTemps() 
+    	{ 
+    		this.dataStore = [];
+    		this.add = add; 
+    		this.average = average;
+		}
+
+		function add(week,temp) 
+		{ 
+			if (this.dataStore[week] === undefined ){
+				this.dataStore[week] = [];
+			}
+
+			this.dataStore[week].push(temp);
+		}
+
+		function average() 
+		{
+			var total = 0;
+			for (var i = 0; i < this.dataStore.length; ++i) 
+			{
+				total += this.dataStore[i]; 
+			}
+			return total / this.dataStore.length; 
+		}
+
+		var thisWeek = new weekTemps(); 
+		thisWeek.add(1,52);
+		thisWeek.add(4,36);
+
+		console.log(thisWeek);
+    
+   
+  
+</script>
+</head>
+
+	<body>
+
+	</body>
+
+</html>
