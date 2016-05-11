@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="Add description ">
+        <title>Advent of Code - Day 2</title>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <input id="input" type="file" accept=".csv">
+	  	<button class="btn btn-default" id="run_button">Run</button>
+	  	
+	  	<script>
+			$('#run_button').click(function()
+			{
+				var file = document.getElementById("input").files[0];
+				var reader = new FileReader();
+				reader.readAsText(file);
+				reader.onload = loadHandler;
+			});
+			function loadHandler(event)
+			{
+				var csv = event.target.result;
+				processData(csv);
+			}
+			function processData(csv) 
+			{
+				//save array created from csv items
+				var dimensions = createArrFromCSV(csv);
+								 
+	      	}
+			function createArrFromCSV(csv)
+			{
+				var allItems = csv.split(/\r\n|\n/);
+        		var dimensions = [];
+        		for (var i=0; i < allItems.length; i++) {
+	            	var data = allItems[i].split(';');
+                	dimensions.push(data);
+        		}
+        		console.log("Array of dimensions are " +dimensions);
+			}
+			
+
+
+		</script>
+	</head>
+
+
+		<body>
+	
+		</body>
+
+</html>
