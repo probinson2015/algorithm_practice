@@ -1,0 +1,46 @@
+<html>
+<head>
+	<title>Is Palindrome</title>
+	<script type="text/javascript">
+	function efficientPalindrome(string)
+	{
+		//validate string; is it empty
+		if (!string){
+			return false; 
+		}
+
+		//for loop; when left pointer is greater than or equal to right pointer
+
+		for (var i = 0, j = string.length-1; i < j; i++, j-- ){
+			console.log("i is " + i);
+			console.log("j is " + j);
+
+
+			if (getNextValidCharacter(string[i]) != getNextValidCharacter(string[j])){
+				return false;
+			}
+
+		}
+		return true;
+	
+	}
+
+	function getNextValidCharacter(character){
+
+		if (character.search(/[a-zA-Z0-9]/)){
+
+		return character.toLowerCase();
+		} else {
+			return false;
+		}
+	};
+
+console.log(efficientPalindrome("A man, a plan, a canal: panama!"));
+
+	</script>
+
+</head>
+<body>
+
+</body>
+</html>
