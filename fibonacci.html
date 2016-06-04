@@ -1,0 +1,29 @@
+
+<script>
+
+
+function fibonacci(num){
+	var sequence = [];
+
+	if (num == 0){
+		return sequence;
+	};
+
+	if (num == 1){
+		sequence.push(0);
+		return sequence;
+	};
+	for (var i = 0; i < num-1; i++){
+		if (i === 0){
+			sequence.push(0,1);
+			continue;
+		}		
+		sequence.push((sequence[i] + sequence[i-1]));
+	};
+	return sequence;
+}
+
+
+//for num times, new value is i + i-1
+console.log(fibonacci(30));
+</script>

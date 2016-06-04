@@ -1,0 +1,50 @@
+<script>
+// check if phrase is a permutation of a palindrome
+
+var isPermutationOfPalindrome = function(phrase){
+	if (!phrase){
+		return false;
+	}
+	else {
+		var table = build_hash(phrase);
+		return checkMaxOneOdd(table);
+	}
+}
+
+var build_hash = function(phrase){
+	var charMap = {};
+	for (var i = 0; i < phrase.length; i++){
+		//get lower case letter 
+		if (phrase[i].match(/[a-zA-Z]/)){
+			var letter = phrase[i].toLowerCase();
+		}
+		else {
+			continue;
+		}
+
+		if (!charMap[letter]){
+			charMap[letter] = 1;
+		} else {
+			charMap[letter] += 1;
+		}
+	}
+	return charMap;	
+}
+
+var checkMaxOneOdd = function(table){
+	var odd = false;
+	for (key in table){
+		if (table[key] % 2 == 1){
+			if (odd == true){
+				return false;
+			} else {
+				odd = true;
+			}
+		}
+	}
+	return true;
+}
+
+console.log(isPermutationOfPalindrome("cat Taco"));
+
+</script>
