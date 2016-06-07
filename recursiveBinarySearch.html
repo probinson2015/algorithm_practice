@@ -1,0 +1,51 @@
+<script>
+
+var arr = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97];
+
+var recursiveBinarySearch = function(arr, target, low, high){
+	if (low > high){return -1; };
+
+	var mid = Math.floor((low+high)/2);
+
+	if (arr[mid] > target){ 
+		return recursiveBinarySearch(arr, target, low, mid-1);
+	} 
+	else if (arr[mid] < target) {
+		return recursiveBinarySearch(arr, target, mid+1, high );
+	}
+	else {
+		return mid;
+	}
+}
+
+
+// console.log(recursiveBinarySearch(arr, 97, 0, arr.length-1));
+
+
+var binarySearch = function(arr, target){
+	var min = 0; 
+	var max = arr.length-1;
+	var mid;
+
+	while (min <= max){
+
+		mid = Math.floor((min + max)/2);
+
+		if (arr[mid] === target){
+			return mid;
+		} else if (arr[mid] < target){
+			min = mid + 1;
+		}
+		else {
+			max = mid - 1;
+		}
+
+	}
+	return -1;
+}
+
+console.log(binarySearch(arr, 97));
+
+// the length will give you the count of elements in the array... but the index of the last element is one less than the length of the array... so depending on if you write your while as while(min < max) or while(min <= max) you will need .length and .length -1... if you just use less than in your while the loop will run as long as the min is less than the max (so until min is one less than max) whereas the second the loop will run as long as min is less than or equal to max (so in this case - until min equals max)...
+
+</script>
