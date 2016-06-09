@@ -1,0 +1,71 @@
+<script>
+
+
+var mergeSort = function(arr){
+
+	//base case, no comparison/sort needed
+	if (arr.length < 2){
+		return arr;
+	} else {
+		//find the middle of the array
+		var middle = parseInt(arr.length/2);
+
+		//save the array length to make the slice easier
+		var n = arr.length;
+
+		// slice the array in half
+		var left = arr.slice(0, middle);
+		var right = arr.slice(middle, n);
+
+		//recursively create subarrays 
+		mergeSort(left);
+		mergeSort(right);
+
+		//merge the sorted subarrays
+		return merge(left,right, arr);
+
+	}
+
+}
+
+var merge = function(left, right, arr){
+
+	var i = 0;
+	var j = 0;
+	var k = 0;
+
+	//assign the smallest value from left or right to the next arr[k] place
+	while (i < left.length && j < right.length){
+		if (left[i] < right[j]){
+			arr[k] = left[i];
+			i++;
+		} else {
+			arr[k] = right[j];
+			j++;
+		}
+		//continually increment k after every compare and assignment
+		k++;
+	}
+
+	//in the case there are some leftover values in one of the arrays
+	// continue to push the values from the left or right array until none are left
+	while (i < left.length){
+		arr[k] = left[i];
+		i++;
+		k++;			
+	};
+
+	while (j < right.length){
+		arr[k] = right[j];
+		j++;
+		k++;
+	};
+
+	return arr;
+
+}
+
+var arr1 = [-8, 3, 99, 0, -2, 5, 10, 27, 77];
+
+console.log(mergeSort(arr1));
+</script>

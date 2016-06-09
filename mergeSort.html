@@ -1,0 +1,76 @@
+<script>
+
+// If the list is of length 0 or 1, then it is already sorted. Otherwise:
+// Divide the unsorted list into two sublists of about half the size.
+// Sort each sublist recursively by re-applying merge sort.
+// Merge the two sublists back into one sorted list.
+
+var mergeSort = function(arr, p, r){
+
+	if ( r <= p){
+		return arr;
+	} else {
+
+		var middle = parseInt((p + r) /2);
+
+		mergeSort(arr, p, middle);
+		mergeSort(arr, middle+1, r);
+		return merge(arr, p, middle, r);
+
+	} 
+};
+
+
+var merge = function (arr, p, q, r){
+
+	var lowHalf = [];
+	var highHalf = [];
+
+	var k = p;
+
+	for (var i = 0; k <= q; i++, k++){
+		lowHalf[i] = arr[k];
+	}
+
+	for (var j = 0; k <= r; j++, k++){
+		highHalf[j] = arr[k];
+	}
+
+
+	k = p;
+	i = 0; 
+	j = 0;
+
+	while(i < lowHalf.length && j < highHalf.length){
+		if (lowHalf[i] < highHalf[j]){
+			arr[k] = lowHalf[i];
+			i++;
+		} else {
+			arr[k] = highHalf[j];
+			j++;
+		}
+
+		k++;
+	}
+
+	while(i < lowHalf.length){
+		arr[k] = lowHalf[i];
+		i++;
+		k++;
+	};
+
+	while (j < highHalf.length){
+		arr[k] = highHalf[j];
+		j++;
+		k++;
+	}
+
+	return arr;
+}
+
+var arr1 = [3, -5, 0, -1,11,4,6];
+// var arr1 = [7, -8];
+
+console.log(mergeSort(arr1, 0, arr1.length-1));
+
+</script>
