@@ -1,0 +1,35 @@
+<script>
+
+var isBalanced = function(string){
+	if (string.length == 1){return false;}
+
+	var stack = [];
+
+	for (var i = 0; i < string.length; i++){
+
+		//if it's an opening, then push in stack
+		if (string[i] == "{" || string[i] == "(" || string[i] == "["){
+			stack.push(string[i]);
+			//if it's a closing, 
+		} else if (string[i] == "}" || string[i] == ")" || string[i] == "]"){
+
+			// check last one in stack for pair. pop if paired
+			if (string[i] == "}" && stack[stack.length-1] == "{" ){stack.pop();}
+			else if (string[i] == "]" && stack[stack.length-1] == "[" ){ stack.pop();}
+			else if (string[i] == ")" && stack[stack.length-1] == "(" ){stack.pop();}
+			else { 
+				return false;}
+			}
+
+		}
+
+	if (stack.length == 0){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+console.log(isBalanced("{(([])){}}"));
+</script>
