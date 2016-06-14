@@ -1,0 +1,16 @@
+<script>
+
+var urlify = function(str){
+	var newString = "";
+	for (var i = 0; i < str.length; i++){
+		if (str.charAt(i) === " "){
+			newString += "%20";
+		} else {
+			newString += str.charAt(i);
+		}
+	}
+	return newString;
+}
+
+console.log(urlify("Mrs Porsha Robinson"));
+</script>

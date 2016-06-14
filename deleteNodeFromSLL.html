@@ -1,0 +1,48 @@
+<script>
+
+var SLL = function(){
+	this.head = null;
+}
+
+var Node = function(val){
+	this.value = val; 
+	this.next = null;
+}
+
+SLL.prototype.add = function(val){
+	var node = new Node(val);
+	if (this.head == null){
+		this.head = node;
+	} else {
+		var current = this.head; 
+		while (current.next != null){
+			current = current.next;
+		}
+		current.next = node;
+	}
+}
+
+SLL.prototype.deleteNode = function(val){
+	if (this.head.value === val){
+		this.head = this.head.next;
+	} else {
+		var current = this.head;
+		while (current && current.next){
+			if (current.next.value === val){
+				current.next = current.next.next;
+			}
+			current = current.next;
+		}
+	}
+}
+
+var sl1 = new SLL();
+sl1.add(5);
+sl1.add(4);
+sl1.add(3);
+sl1.add(2);
+sl1.add(1);
+sl1.deleteNode(3);
+console.log(sl1);
+
+</script>
